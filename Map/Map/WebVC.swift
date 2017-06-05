@@ -18,9 +18,6 @@ class WebVC: UIViewController
         super.viewDidLoad()
         
         loadURL()
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

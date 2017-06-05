@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GoogleMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-bi-Yfz" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bed-9N-63O">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="HzL-0G-uyd">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="eqM-yA-eu0">
+                                            <rect key="frame" x="16" y="7" width="182" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Standard"/>
+                                                <segment title="Hybrid"/>
+                                                <segment title="Satellite"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="changeMapType:" destination="BYZ-38-t0r" eventType="valueChanged" id="Agp-RY-ds5"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="m9F-aP-uwn">
+                                        <searchBar key="customView" contentMode="redraw" id="FTV-uW-Ea6">
+                                            <rect key="frame" x="208" y="0.0" width="162" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fFq-bi-Yfz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="53g-eV-7Fh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bed-9N-63O" secondAttribute="bottom" id="5cr-HC-9Gx"/>
+                            <constraint firstItem="fFq-bi-Yfz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WBG-hz-JYs"/>
+                            <constraint firstAttribute="trailing" secondItem="fFq-bi-Yfz" secondAttribute="trailing" id="ZX6-vQ-Ncb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fFq-bi-Yfz" secondAttribute="bottom" id="gO0-HJ-1Xa"/>
+                            <constraint firstItem="Bed-9N-63O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jmi-qr-5bx"/>
+                            <constraint firstAttribute="trailing" secondItem="Bed-9N-63O" secondAttribute="trailing" id="ydU-CP-TNM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="fFq-bi-Yfz" id="Nte-LJ-EuU"/>
+                        <outlet property="searchBar" destination="FTV-uW-Ea6" id="N1M-OK-UbW"/>
+                        <segue destination="Fp9-77-xbP" kind="show" identifier="showWeb" id="dUP-hh-kQh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1" y="152"/>
+        </scene>
+        <!--WebVC-->
+        <scene sceneID="9fl-pw-AOi">
+            <objects>
+                <viewController id="ZVP-p7-Ve8" customClass="WebVC" customModule="GoogleMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nuF-Ag-dU7"/>
+                        <viewControllerLayoutGuide type="bottom" id="yhZ-wd-Lw5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Fl-T5-DcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvZ-Xb-DTY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MvZ-Xb-DTY" firstAttribute="leading" secondItem="5Fl-T5-DcZ" secondAttribute="leading" id="8go-Zg-tOd"/>
+                            <constraint firstItem="yhZ-wd-Lw5" firstAttribute="top" secondItem="MvZ-Xb-DTY" secondAttribute="bottom" id="FwY-Pj-Agv"/>
+                            <constraint firstItem="MvZ-Xb-DTY" firstAttribute="top" secondItem="nuF-Ag-dU7" secondAttribute="bottom" constant="-64" id="QSg-xo-WjX"/>
+                            <constraint firstAttribute="trailing" secondItem="MvZ-Xb-DTY" secondAttribute="trailing" id="wuz-Yr-e21"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="86q-Lp-wQe">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="SLw-Yo-0Zh">
+                            <connections>
+                                <action selector="backButton:" destination="ZVP-p7-Ve8" id="edi-Xl-j2u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="MvZ-Xb-DTY" id="2bw-GN-maR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MpC-DB-dbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1388" y="151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EzZ-XX-OIn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fp9-77-xbP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MBd-9f-5iK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZVP-p7-Ve8" kind="relationship" relationship="rootViewController" id="LWW-Nx-u4i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNR-P2-r6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="152"/>
+        </scene>
+    </scenes>
+</document>
